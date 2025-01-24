@@ -1,5 +1,8 @@
 const bloomButton = document.getElementById('bloomButton');
 const animationArea = document.getElementById('animationArea');
+const backgroundMusic = document.getElementById('backgroundMusic'); // Audio element
+
+let musicPlayed = false; // Tracks whether the music has been played
 
 // Function to create a random lavender shade
 function getRandomLavenderShade() {
@@ -44,11 +47,16 @@ function createLavender(x, y) {
     // Remove the lavender after animation to prevent clutter
     setTimeout(() => {
         stem.remove();
-    }, 10000); // Remove after 5 seconds
+    }, 30000); // Remove after 30 seconds
 }
-
 // Add click event to the button
 bloomButton.addEventListener('click', () => {
+    // Play music on the first click
+    if (!musicPlayed) {
+        backgroundMusic.play();
+        musicPlayed = true; // Ensure music only plays once
+    }
+
     // Create multiple lavender stems at random positions
     for (let i = 0; i < 5; i++) {
         const x = Math.random() * window.innerWidth;
