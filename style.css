@@ -1,0 +1,94 @@
+/* General Styles */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+/* Container for animation area */
+.container {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Button Styles */
+button {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Precisely center */
+    background: rgb(207, 103, 223); /* Slight transparency */
+    border: 2px solid white;
+    padding: 15px 30px;
+    font-size: 24px;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover Effect: Lift and Shadow */
+button:hover {
+    transform: translate(-50%, -50%) scale(1.05); /* Slight lift */
+    box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.4); /* Add shadow */
+}
+
+/* Animation Area */
+.animation-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Lavender Stem */
+.stem {
+    position: absolute;
+    bottom: 0;
+    width: 4px; /* Thicker stem */
+    background: green;
+    border-radius: 2px;
+    animation: grow 2s ease-out forwards;
+}
+
+/* Lavender Petals */
+.petal {
+    position: absolute;
+    width: 7px; /* Petal width */
+    height: 12px; /* Petal height */
+    background: lavender; /* Default lavender color */
+    border-radius: 50%;
+    opacity: 0;
+    animation: bloom 1s ease-out forwards;
+}
+
+/* Animations */
+@keyframes grow {
+    0% {
+        height: 0;
+    }
+    100% {
+        height: 100px;
+    }
+}
+
+@keyframes bloom {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
